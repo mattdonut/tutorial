@@ -1,68 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Getting-Started
 
-In the project directory, you can run:
+This folder contains the results of calling the command 
 
-### `yarn start`
+```
+> npx create-react-app getting-started
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+If you checked out this repo, you can try out the default app by installing the dependencies, and then starting the app.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```
+> yarn install
+> yarn start
+```
 
-### `yarn test`
+This should fire up the dev server and automatically open the app in your default browser. Make sure everything is running before we start mucking about in here :)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Typescript
 
-### `yarn build`
+We're going to be using `Typescript` in this tutorial series, so we need to make sure that it is installed.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+> yarn add typescript
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The modern version of create-react-app knows how to use typescript automatically, so the next step is to just change our file types.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Rename `index.js` and `App.js` to `index.tsx` and `App.tsx`
 
-### `yarn eject`
+(I like to use the explicit `tsx` extension to let my editor know that its going to be running into that markup)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Now you are using `Typescript`!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Well, technically. `Typescript` is a superset of `Javascript`, so any `.js` file is technically valid `Typescript`. However, if you have your editor set up to be strict, it will complain that many of your variables are implicitly of type `any` because we haven't added any types. So our first task is to type our app Component.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Open `App.tsx` and take a look at what we have. `create-react-app` makes a very basic `FunctionComponent` called `App`. In this case, it is just a plain javascript function that returns a react node using JSX compiling. When the `App` component is loaded, React uses this function as a render method when it is time for the component to display itself. This actually places some restrictions on this function's type signature. The argument structure will define the components prop types, and the return value must be a React Node.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+In this case, we don't have any props, since this is the root component, but we would still like to let typescript know that this function is a value React FunctionComponent.
 
-## Learn More
+First, we need to `import` the type definition supplied by React as a named export. We are actually going to use the very handy alias `FC` instead of `FunctionComponent`, since it is much shorter
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```typescript
+import React, {FC} from 'react'
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To apply a pre-existing type to a function, we need to use a variable and fuction literal assignment. Change the function definition to be:
 
-### Code Splitting
+```typescript
+const App: FunctionComponent<{}> = () => {
+    //...
+}
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
