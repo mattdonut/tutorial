@@ -1,0 +1,17 @@
+[
+    {
+        "id": 0,
+        "text": "Wake up",
+        "done": true
+    },
+    {
+        "id": 1,
+        "text": "Snooze...",
+        "done": true
+    },
+    {
+        "id": 2,
+        "text": "Wake up, again",
+        "done": false
+    }
+]
