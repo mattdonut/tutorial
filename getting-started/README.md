@@ -85,7 +85,7 @@ Our component needs inputs! Right now all it needs is a `Todo` to display. All R
 
 ```tsx
 import React, {FC} from 'react'
-import Todo from './TodoTypes'
+import {Todo} from './TodoTypes'
 
 interface TodoItemProps {
     todo: Todo;
