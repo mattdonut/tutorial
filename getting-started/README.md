@@ -44,7 +44,7 @@ First, we need to `import` the type definition supplied by React as a named expo
 import React, {FC} from 'react'
 ```
 
-To apply a pre-existing type to a function, we need to use a variable and fuction literal assignment. Change the function definition to be:
+To apply a pre-existing type to a function, we need to use a variable and function literal assignment. Change the function definition to be:
 
 ```typescript
 const App: FC = () => {
@@ -52,7 +52,7 @@ const App: FC = () => {
 }
 ```
 
-And thats it! This is actually the only definition in our app, since Typescript can automatically infer the types of the JSX elements. Speaking of those elements, its time to start putting together our actual app.
+And thats it! This is actually the only definition in our app, since Typescript can automatically infer the types of the JSX elements. Speaking of those elements, it's time to start putting together our actual app.
 
 ## Todo
 
